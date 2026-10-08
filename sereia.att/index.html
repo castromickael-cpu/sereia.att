@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sereia Restaurante e Churrascaria</title>
+  <meta name="description" content="Sereia Restaurante e Churrascaria em Paranaguá-PR. Veja o cardápio, os pratos executivos e peça pelo WhatsApp.">
+  <link rel="icon" href="img/logo-sereia.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="topbar">
+    <span>Pratos executivos de terça à sexta</span>
+    <a href="#localizacao">Como chegar</a>
+  </div>
+
+  <header class="header">
+    <div class="container header__row">
+      <a href="#inicio" class="brand" aria-label="Sereia, início">
+        <img src="img/sereiaimg1.jpg" alt="Sereia Restaurante e Churrascaria" width="70" height="52">
+      </a>
+      <nav class="nav" id="nav" aria-label="Principal">
+        <a href="#inicio">Início</a>
+        <a href="#combos">Combos</a>
+        <a href="#cardapio" data-view="cardapio">Cardápio</a>
+        <a href="#localizacao">Localização</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- PÁGINA PRINCIPAL -->
+  <main id="home">
+    <section class="hero" id="inicio">
+      <div class="container hero__grid">
+        <div class="hero__text">
+          <h1>Sabor e tradição em cada refeição!</h1>
+          <p>Restaurante e Churrascaria em Paranaguá. Peça pelo WhatsApp.</p>
+          <div class="actions">
+            <a class="btn btn--primary" data-wa href="#contato">Pedir pelo WhatsApp</a>
+            <a class="btn btn--ghost" href="#combos">Ver combos</a>
+          </div>
+        </div>
+        <div class="hero__logo">
+          <img src="img/sereiaimg3.jpeg" alt="Sereia Restaurante e Churrascaria" width="360" height="282">
+        </div>
+      </div>
+      <svg class="wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0,40 C240,90 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z"/>
+      </svg>
+    </section>
+
+    <section class="section" id="combos">
+      <div class="container">
+        <h2>Combos</h2>
+        <p class="section__sub">Prato executivo, somente de terça à sexta.</p>
+        <div class="combo">
+          <figure class="combo__photo">
+            <img src="img/sereiaimg6.jpeg" alt="Prato executivo com carne, arroz, feijão, fritas, salada e creme" width="590" height="480" loading="lazy">
+            <figcaption>*Foto ilustrativa</figcaption>
+          </figure>
+          <div class="combo__info">
+            <h3>Pratos executivos</h3>
+            <ul class="plist" id="execList"></ul>
+            <p class="combo__note"><strong>Acompanha:</strong> arroz, feijão, farofa, pão, creme e 10 tipos de salada.</p>
+            <p class="combo__extra">Adicional de fritas <strong>R$ 10,00</strong></p>
+            <a class="btn btn--primary" data-wa href="#contato">Pedir pelo WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container cta__row">
+        <h2>Veja o cardápio completo</h2>
+        <a class="btn btn--light" href="#cardapio">Abrir cardápio</a>
+      </div>
+    </section>
+
+    <section class="section" id="localizacao">
+      <div class="container loc">
+        <div>
+          <h2>Localização</h2>
+          <address class="loc__addr">
+            Rua Nestor Victor, 411 · João Gualberto<br>
+            Anexo ao Clube Associação do Banco do Brasil (AABB)<br>
+            Paranaguá, Paraná
+          </address>
+          <a class="btn btn--primary" href="https://maps.app.goo.gl/Xd6mNXRVpFCciNcg6" target="_blank" rel="noopener">Abrir no Google Maps</a>
+        </div>
+        <a class="loc__card" href="https://maps.app.goo.gl/Xd6mNXRVpFCciNcg6" target="_blank" rel="noopener" aria-label="Abrir localização do Sereia no Google Maps">
+          <svg viewBox="0 0 24 24" width="48" height="48" aria-hidden="true"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+          <span>Ver no mapa</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ABA CARDÁPIO: oculta até clicar em "Cardápio" no menu -->
+  <main id="cardapio" class="menu-view" hidden tabindex="-1">
+    <div class="container">
+      <a class="back" href="#inicio">&larr; Voltar ao início</a>
+      <h1>Cardápio</h1>
+      <p class="section__sub">P = pessoas. Preços por porção para 1, 2, 3 ou 4 pessoas.</p>
+
+      <h2 class="menu__title">Carnes</h2>
+      <div class="tablewrap">
+        <table class="ptable">
+          <thead><tr><th scope="col">Corte</th><th scope="col">1P</th><th scope="col">2P</th><th scope="col">3P</th><th scope="col">4P</th></tr></thead>
+          <tbody id="carnesBody"></tbody>
+        </table>
+      </div>
+
+      <h2 class="menu__title">Mistos</h2>
+      <div class="tablewrap">
+        <table class="ptable">
+          <thead><tr><th scope="col">Mistura</th><th scope="col">1P</th><th scope="col">2P</th><th scope="col">3P</th><th scope="col">4P</th></tr></thead>
+          <tbody id="mistosBody"></tbody>
+        </table>
+      </div>
+
+      <div class="menu__cta">
+        <a class="btn btn--primary" data-wa href="#contato">Pedir pelo WhatsApp</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer" id="contato">
+    <div class="container footer__grid">
+      <div>
+        <img src="img/sereiaimg1.jpg" alt="Sereia Restaurante e Churrascaria" width="70" height="52">
+      </div>
+      <div>
+        <h3>WhatsApp</h3>
+        <a class="wa-link" data-wa data-wa-text href="#contato">Chamar no WhatsApp</a>
+        <h3 class="mt">Telefone</h3>
+        <a href="tel:+55 41 8412-8009">41 98412-8009</a>
+      </div>
+      <div>
+        <h3>Onde estamos</h3>
+        <p>Rua Nestor Victor, 411, João Gualberto<br>Paranaguá, Paraná</p>
+        <a href="https://maps.app.goo.gl/Xd6mNXRVpFCciNcg6" target="_blank" rel="noopener">Ver no Google Maps</a>
+      </div>
+      <div>
+        <h3>Redes sociais</h3>
+        <p>Facebook e Instagram<br>@churrascariasereia</p>
+      </div>
+    </div>
+    <p class="footer__copy">© <span id="year"></span> Sereia Restaurante e Churrascaria</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
